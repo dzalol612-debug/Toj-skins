@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>TOJ Skins — скины CS 1.6</title>
+  <link rel="stylesheet" href="./assets/style/style.css">
+  <link rel="stylesheet" href="./assets/style/games.css">
+  <link rel="stylesheet" href="./assets/style/extras.css">
+</head>
+<body>
+
+  <header class="glass">
+    <button id="burger" type="button" aria-label="Открыть меню">☰</button>
+    <a class="logo" href="#home" aria-label="На главную">TOJ_<i>skins</i></a>
+
+    <!-- На компьютере это часть шапки, на телефоне — боковое меню -->
+    <aside id="side">
+      <nav>
+        <a href="#home" data-page="home">Главная</a>
+        <a href="#skins" data-page="skins">Скины</a>
+        <a href="#cases" data-page="cases">Кейсы</a>
+        <a href="#inv" data-page="inv">Инвентарь</a>
+        <a href="#pass" data-page="pass">Пасс</a>
+        <a href="#crash" data-page="crash">Краш</a>
+        <a href="#blackjack" data-page="blackjack">Блэкджек</a>
+        <a href="#upgrade" data-page="upgrade">Апгрейд</a>
+      </nav>
+      <div class="tools">
+        <input id="promo-input" type="text" placeholder="Промокод" autocomplete="off">
+        <button id="promo-btn" type="button">Активировать</button>
+        <button id="donate-btn" class="p" type="button">Пополнить</button>
+      </div>
+    </aside>
+
+    <div class="bal">
+      <button id="sound-btn" type="button" aria-label="Включить или выключить звук"></button>
+      <button id="settings-btn" type="button" data-goto="settings" aria-label="Настройки">⚙</button>
+      <span id="bal"></span>
+    </div>
+  </header>
+  <div id="overlay"></div>
+
+  <div id="banner"></div>
+  <main id="app"></main>
+
+  <footer>TOJ_skins · скины для Counter-Strike 1.6</footer>
+
+  <!-- Окно открытия кейса -->
+  <div class="modal" id="case-modal">
+    <div class="box glass opener" id="case-box">
+      <button class="x" data-close type="button" aria-label="Закрыть">✕</button>
+
+      <div class="op-head">
+        <img id="case-img" alt="">
+        <div><small>Открытие кейса</small><h2 id="case-title"></h2></div>
+        <div class="op-price" id="case-price"></div>
+      </div>
+
+      <div class="vp" id="viewport"><div class="mk"></div><div class="tr" id="track"></div></div>
+
+      <div class="acts">
+        <button class="p" id="go" type="button"></button>
+        <button id="demo" type="button">Демо без списания</button>
+      </div>
+
+      <div class="reveal" id="result"></div>
+
+      <h3 class="pool-title">Что может выпасть</h3>
+      <div class="pool" id="pool"></div>
+    </div>
+  </div>
+
+  <!-- Окно доната -->
+  <div class="modal" id="donate-modal">
+    <div class="box glass narrow">
+      <div class="row head"><h2>Пополнить баланс</h2><button data-close type="button">✕</button></div>
+      <div class="packs" id="packs"></div>
+      <div class="acts"><button class="p" id="pay-btn" type="button"></button></div>
+    </div>
+  </div>
+
+  <!-- Всплывающее окно: открывается функцией showPopup({...}), см. script.js -->
+  <div class="modal" id="popup-modal">
+    <div class="box glass narrow popup">
+      <button class="x" data-close type="button" aria-label="Закрыть">✕</button>
+      <img id="popup-img" alt="" hidden>
+      <h2 id="popup-title"></h2>
+      <p id="popup-text"></p>
+      <div class="acts">
+        <button class="p" id="popup-btn" type="button"></button>
+        <button id="popup-cancel" data-close type="button" hidden>Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Окно «Как установить скин»: выезжает снизу по кнопке «Установить». Шаги лежат в extras.js (INSTALL_STEPS) -->
+  <div class="modal sheet" id="install-modal">
+    <div class="box glass install-box">
+      <button class="x" data-close type="button" aria-label="Закрыть">✕</button>
+      <div class="ins-head">
+        <div class="ins-art" id="install-art"></div>
+        <div><small>Установка скина</small><h2 id="install-title"></h2></div>
+      </div>
+      <ol class="steps" id="install-steps"></ol>
+      <p class="ins-tip" id="install-tip"></p>
+      <div class="acts">
+        <button class="install big" id="install-download" type="button">Скачать архив</button>
+        <button data-close type="button">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="glass"></div>
+
+  <script src="./assets/script/script.js"></script>
+  <script src="./assets/script/extras.js"></script>   <!-- главная, пасс, настройки, окно установки -->
+  <script src="./assets/script/games.js"></script>
+</body>
+</html>
